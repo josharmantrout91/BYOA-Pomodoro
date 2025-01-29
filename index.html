@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link href="https://fonts.cdnfonts.com/css/geist-sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="timer-container">
+        <div class="mode-picker">
+            <button class="mode-button active" data-mode="work">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 3.5V8L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </button>
+            <button class="mode-button" data-mode="rest">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 8C12 10.2091 10.2091 12 8 12C5.79086 12 4 10.2091 4 8C4 5.79086 5.79086 4 8 4C10.2091 4 12 5.79086 12 8Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 2.5V1.5M8 14.5V13.5M13.5 8H14.5M1.5 8H2.5M11.7 4.3L12.4 3.6M3.6 12.4L4.3 11.7M11.7 11.7L12.4 12.4M3.6 3.6L4.3 4.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <div id="mode">Work Time</div>
+        <div id="time">25:00</div>
+        <div class="button-wrapper">
+            <button id="start">Start</button>
+            <div class="tooltip">Start <span class="key-indicator">S</span></div>
+        </div>
+        <div class="button-wrapper">
+            <button id="pause">Pause</button>
+            <div class="tooltip">Pause <span class="key-indicator">P</span></div>
+        </div>
+        <div class="button-wrapper">
+            <button id="reset">Reset</button>
+            <div class="tooltip">Reset <span class="key-indicator">R</span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

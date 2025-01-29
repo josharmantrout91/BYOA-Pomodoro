@@ -1,0 +1,201 @@
+@import url('https://fonts.cdnfonts.com/css/geist-sans');
+
+body {
+    font-family: 'Geist', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #F6F8F7;
+    color: #2d3748;
+}
+
+.timer-container {
+    text-align: center;
+    padding: 3rem;
+    background-color: rgb(255, 255, 255);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-color: rgba(0, 0, 0, 0.1);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgba(0, 0, 0, 0.1);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.04) 0px 0px 3.6px 0px, rgba(0, 0, 0, 0.04) 0px 0px 10px 0px, rgba(0, 0, 0, 0.05) 0px 0px 24.1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 80px 0px;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    color-scheme: light;
+    position: relative;
+}
+
+#time {
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    color: #0f0e12;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -2px;
+}
+
+button {
+    position: relative;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgba(0, 0, 0, 0.1);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgba(0, 0, 0, 0.1);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: none;
+    border-top-width: 0px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 2px, rgba(0, 0, 0, 0.08) 0px 1px 1px -1px, rgba(0, 0, 0, 0.08) 0px 2px 2px -1px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 1px 0px 0px inset, rgb(255, 255, 255) 0px 1px 2px 1px inset, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px inset;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    color-scheme: light;
+    outline-color: rgba(0, 0, 0, 0);
+    outline-offset: 2px;
+    outline-style: solid;
+    outline-width: 2px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+button:disabled {
+    background-color: #f5f5f5;
+    color: #a1a1aa;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#mode {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #0f0e12;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .timer-container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    #time {
+        font-size: 4rem;
+    }
+    button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 12px;
+    background: #0f0e12;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.key-indicator {
+    padding: 1px 6px;
+    background: #1a1a1f;
+    border: 1px solid #252529;
+    border-radius: 4px;
+}
+
+.button-wrapper:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mode-picker {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px;
+    border-radius: 8px;
+    gap: 1px;
+}
+
+.mode-picker .mode-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    min-width: unset;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    color: #666;
+    transition: all 0.15s ease;
+    box-shadow: none;
+}
+
+.mode-picker .mode-button:hover {
+    color: #333;
+}
+
+.mode-picker .mode-button.active {
+    background: white;
+    color: #0f0e12;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.mode-picker .mode-button svg {
+    width: 14px;
+    height: 14px;
+}
