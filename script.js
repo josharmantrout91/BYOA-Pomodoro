@@ -33,7 +33,13 @@ class PomodoroTimer {
         // Add mode picker elements
         this.modeButtons = document.querySelectorAll('.mode-button');
         this.modeButtons.forEach(button => {
-            button.addEventListener('click', () => this.switchModeManually(button.dataset.mode));
+            button.addEventListener('click', () => {
+                // Simply toggle between work and rest modes
+                this.isWorkTime = !this.isWorkTime;
+                this.timeLeft = this.isWorkTime ? this.workTime : this.breakTime;
+                this.updateDisplay();
+                this.updateModeButtons();
+            });
         });
     }
 
